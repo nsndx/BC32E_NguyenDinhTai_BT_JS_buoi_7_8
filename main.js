@@ -128,7 +128,7 @@ document.getElementById('btn_bai4').onclick = function () {
         kqBai4 = 'Mảng rỗng'
     } else {
         var myArray1 = []
-        for (i = 1; i < myArray.length; i++) {
+        for (i = 0; i < myArray.length; i++) {
             if (myArray[i] > 0) {
                 myArray1.push(myArray[i])
             }
@@ -148,4 +148,22 @@ document.getElementById('btn_bai4').onclick = function () {
         kqBai4 = 'Số dương nhỏ nhất là: ' + kqBai4
     }
     document.querySelector('.main .kqBai4').innerHTML = kqBai4
+}
+
+// Bài 5: Tìm số chẵn cuối cùng trong mảng. Nếu mảng không có giá trị chẵn thì trả về -1.
+document.getElementById('btn_bai5').onclick = function () {
+    var kqBai5 = 0;
+    if (myArray == '') {
+        kqBai5 = 'Mảng rỗng'
+    } else {
+        for (i = myArray.length - 1; i >= 0; i--) {
+            if (myArray[i] % 2 == 0) {
+                kqBai5 = 'Số chẵn cuối cùng là: ' + myArray[i]
+                break
+            } else {
+                kqBai5 = -1
+            }
+        }
+    }
+    document.querySelector('.main .kqBai5').innerHTML = kqBai5
 }

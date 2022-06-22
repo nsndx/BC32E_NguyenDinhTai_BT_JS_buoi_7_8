@@ -137,6 +137,7 @@ document.getElementById('btn_bai4').onclick = function () {
             for (j = 0; j < myArray1.length; j++) {
                 if (myArray1[i] - myArray1[j] > 0) {
                     checkSNN = false
+                    break
                 }
             }
             if (checkSNN) {
@@ -181,7 +182,7 @@ document.getElementById('btn_bai6').onclick = function () {
     } else {
         myArray[viTri1] = y
         myArray[viTri2] = x
-        kqBai6 = 'Mảng sau khi đổi chỗ' + myArray
+        kqBai6 = 'Mảng sau khi đổi chỗ: ' + myArray
     }
     document.querySelector('.main .kqBai6').innerHTML = kqBai6
 }
@@ -235,21 +236,50 @@ document.getElementById('btn_bai8').onclick = function () {
 }
 
 // Bài 9: Nhập thêm 1 mảng số thực, tìm xem trong mảng có bao nhiêu số nguyên.
+var myArrayB9 = []
+document.getElementById('b9_themSo').onclick = function () {
+    var soN_B9 = document.getElementById('b9_nhapSo').value
+    if (soN_B9 == '') { } else {
+        myArrayB9.push(' ' + Number(soN_B9))
+        document.getElementById('b9_nhapSo').value = ''
+    }
+    document.getElementById('b9_soThem').innerHTML = myArrayB9
+}
 document.getElementById('btn_bai9').onclick = function () {
     var kqBai9 = 0;
-
-
-
-
-    document.querySelector('.main .kqBai9').innerHTML = kqBai9 
+    for (i = 0; i < myArrayB9.length; i++) {
+        var soNguyen = Number.isInteger(Number(myArrayB9[i]))
+        if (soNguyen) {
+            kqBai9++
+        }
+    }
+    kqBai9 = 'Số số nguyên trong mảng là: ' + kqBai9
+    document.querySelector('.main .kqBai9').innerHTML = kqBai9
 }
 
 // Bài 10: So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.
 document.getElementById('btn_bai10').onclick = function () {
     var kqBai10 = ''
-
-
-
-
+    if (myArray == '') {
+        kqBai10 = 'Mảng rỗng'
+    } else {
+        var soAm = 0
+        var soDuong = 0
+        for (i = 0; i < myArray.length; i++) {
+            if (myArray[i] > 0) {
+                soDuong++
+            } 
+            if (myArray[i] < 0) {
+                soAm++
+            }
+        }
+        if (soAm == soDuong) {
+            kqBai10 = 'số dương = số âm'
+        } else if (soAm > soDuong) {
+            kqBai10 = 'số âm > số dương'
+        } else {
+            kqBai10 = 'số dương > số âm'
+        }
+    }
     document.querySelector('.main .kqBai10').innerHTML = kqBai10
 }

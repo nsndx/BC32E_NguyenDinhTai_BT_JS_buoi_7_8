@@ -65,7 +65,6 @@ document.querySelector('.top button').onclick = function () {
     document.querySelector('.top .soThem').innerHTML = myArray
 }
 
-
 //bài 1: Tổng các số dương trong mảng.
 document.getElementById('btn_bai1').onclick = function () {
     var kqBai1 = 0;
@@ -166,4 +165,91 @@ document.getElementById('btn_bai5').onclick = function () {
         }
     }
     document.querySelector('.main .kqBai5').innerHTML = kqBai5
+}
+
+// Bài 6: Đổi chỗ 2 giá trị trong mảng theo vị trí (Cho nhập vào 2 vị trí muốn đổi chỗ giá trị).
+document.getElementById('btn_bai6').onclick = function () {
+    var kqBai6 = []
+    var viTri1 = document.getElementById('viTri1').value
+    var viTri2 = document.getElementById('viTri2').value
+    var x = myArray[viTri1]
+    var y = myArray[viTri2]
+    if (myArray == '') {
+        kqBai6 = 'Mảng rỗng'
+    } else if (viTri1 == '' || viTri2 == '') {
+        kqBai6 = 'Mời nhập vị trí'
+    } else {
+        myArray[viTri1] = y
+        myArray[viTri2] = x
+        kqBai6 = 'Mảng sau khi đổi chỗ' + myArray
+    }
+    document.querySelector('.main .kqBai6').innerHTML = kqBai6
+}
+
+// Bài 7. Sắp xếp mảng theo thứ tự tăng dần.
+document.getElementById('btn_bai7').onclick = function () {
+    var kqBai7 = []
+    if (myArray == '') {
+        kqBai7 = 'Mảng rỗng'
+    } else {
+        kqBai7 = myArray.sort(function (a, b) {
+            return a - b
+        })
+        kqBai7 = 'Mảng sau khi sắp xếp: ' + kqBai7
+    }
+    document.querySelector('.main .kqBai7').innerHTML = kqBai7
+}
+
+// Bài 8: Tìm số nguyên tố đầu tiên trong mảng. Nếu mảng không có số nguyên tố thì trả về – 1.
+document.getElementById('btn_bai8').onclick = function () {
+    var kqBai8 = 0
+    if (myArray == '') {
+        kqBai8 = 'Mảng rỗng'
+    } else {
+        var soDuong = []
+        for (i = 0; i < myArray.length; i++) {
+            if (myArray[i] > 1) {
+                soDuong.push(myArray[i])
+            }
+        }
+        if (soDuong.length == 0) {
+            kqBai8 = -1
+        }
+        for (k = 0; k < soDuong.length; k++) {
+            checkSNT = true
+            for (j = 2; j <= soDuong[k] / 2; j++) {
+                if (soDuong[k] % j == 0) {
+                    checkSNT = false
+                    break
+                }
+            }
+            if (checkSNT) {
+                kqBai8 = 'Số nguyên tố đầu tiên là: ' + soDuong[k]
+                break
+            } else {
+                kqBai8 = -1
+            }
+        }
+    }
+    document.querySelector('.main .kqBai8').innerHTML = kqBai8
+}
+
+// Bài 9: Nhập thêm 1 mảng số thực, tìm xem trong mảng có bao nhiêu số nguyên.
+document.getElementById('btn_bai9').onclick = function () {
+    var kqBai9 = 0;
+
+
+
+
+    document.querySelector('.main .kqBai9').innerHTML = kqBai9 
+}
+
+// Bài 10: So sánh số lượng số dương và số lượng số âm xem số nào nhiều hơn.
+document.getElementById('btn_bai10').onclick = function () {
+    var kqBai10 = ''
+
+
+
+
+    document.querySelector('.main .kqBai10').innerHTML = kqBai10
 }
